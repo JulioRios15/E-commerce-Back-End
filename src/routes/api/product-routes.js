@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
+const {sendSuccessResponse, sendErrorResponse} = require('../../utils/sendResponse');
 
 // The `/api/products` endpoint
 
@@ -90,7 +91,24 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete one product by its `id` value
+  // Destroy product id from the request
+  const {id} = req.params;
+
+  // delete a product by its `id` value
+  Product.destroy({
+    where: {
+      id
+    }
+  })
+  .then(product => {
+    if(product == 0){
+      return sendErrorResponse(res, 404, "Unable to delete tag");
+    }
+    return sendSuccessResponse(res, 201, "Tag deleted", product);
+  })
+  .catch(error => {
+    return sendErrorResponse(res, 500, "Unable to delete category", error);
+  })
 });
 
 module.exports = router;
