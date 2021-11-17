@@ -5,13 +5,50 @@ const {sendSuccessResponse, sendErrorResponse} = require('../../utils/sendRespon
 // The `/api/categories` endpoint
 
 router.get('/', (req, res) => {
-  // find all categories
-  // be sure to include its associated Products
+
+  return Category.findAll({
+    include: [{
+      model:Product
+    }]
+  })
+  .then((categories) => {
+    if(categories.length == 0){
+      return sendErrorResponse(re, 404, "No categories found");
+    }
+
+    return sendSuccessResponse(res, 200, `${categories.length} categories found`, categories);
+  })
+  .catch((error) => { 
+    return sendErrorResponse(res, 500, "Unable to find categories", error);
+  })
+
+  
 });
 
 router.get('/:id', (req, res) => {
-  // find one category by its `id` value
-  // be sure to include its associated Products
+
+  //Destroy id from request paramas
+  const {id} = req.params;
+
+  return Category.findAll({
+    where: {
+      id
+    },
+    include: [{
+      model:Product
+    }]
+  })
+  .then((categories) => {
+    if(categories.length == 0){
+      return sendErrorResponse(re, 404, "No categories found");
+    }
+
+    return sendSuccessResponse(res, 200, `category found`, categories);
+  })
+  .catch((error) => { 
+    return sendErrorResponse(res, 500, "Unable to find category by id", error);
+  })
+
 });
 
 router.post('/', (req, res) => {
