@@ -4,14 +4,52 @@ const {sendSuccessResponse, sendErrorResponse} = require('../../utils/sendRespon
 
 // The `/api/tags` endpoint
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // find all tags
   // be sure to include its associated Product data
+
+  try {
+    const tags = await Tag.findAll({
+      include: [
+        {model: Product}
+      ]
+    });
+
+    if(tags.length == 0){
+      return sendErrorResponse(res, 404, "No tags found");
+    }
+
+    sendSuccessResponse(res, 200, "Tags", tags)
+    
+  } catch (error) {
+    sendErrorResponse(res, 500, "Unable to find tags", error);
+  }
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
+  const {id} = req.params;
+
+  try {
+    const tags = await Tag.findAll({
+      where: {
+        id
+      },
+      include: [
+        {model: Product}
+      ]
+    });
+
+    if(tags.length == 0){
+      return sendErrorResponse(res, 404, "No tag found for id");
+    }
+
+    sendSuccessResponse(res, 200, "Tag", tags[0]);
+    
+  } catch (error) {
+    sendErrorResponse(res, 500, "Unable to find tag", error);
+  }
 });
 
 router.post('/', (req, res) => {
