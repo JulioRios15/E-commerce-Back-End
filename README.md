@@ -3,9 +3,10 @@
   * [Description](#description)
   * [Installation](#instructions)
   * [Routes](#routes)
-    * [Products](#Products_Routes)
-    * [Category](#category_routes)
-    * [Tag](#tag_routes)
+    * [Products](#Products-Routes)
+        * [Get All Products](#get-all-products)
+    * [Category](#category-routes)
+    * [Tag](#tag-routes)
   * [Demonstration](#demonstration)
   * [Contributions](#contributions)
 
@@ -38,7 +39,7 @@ This app is the backend for an E-Commerce application. Build with node js and ex
 
 ### Products Routes
 
-#### Get All Products Route
+#### Get All Products
 The following example demonstrates how to get all products information
 
 #### Example Request
@@ -122,9 +123,9 @@ GET http://localhost:3001/api/products/:id
 #### Create New Product Route
 The following example demonstrates how to create a new product
 
-#### Example Request
+#### Example POST Request
 ```
-POST http://localhost:3001/api/products
+http://localhost:3001/api/products
 ```
 #### Example Request Body
 ```json
@@ -141,8 +142,6 @@ POST http://localhost:3001/api/products
 ### Tag Routes
 
 ## Demonstration
-Project Demo
-
 [Watch demo video in youtube](https://youtu.be/RwZBZgHCLc8)
 
 ## Contributions
