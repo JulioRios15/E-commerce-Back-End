@@ -20,8 +20,10 @@ This app is the backend for an E-Commerce application. Build with node js and ex
 
 ### Packages Used
 
-* [mysql2](https://www.npmjs.com/package/mysql2)
+* [express](https://www.npmjs.com/package/express)
 * [dotenv](https://www.npmjs.com/package/dotenv)
+* [mysql2](https://www.npmjs.com/package/mysql2)
+* [sequelize](https://www.npmjs.com/package/sequelize)
 
 ## Installation
 
@@ -39,7 +41,7 @@ This app is the backend for an E-Commerce application. Build with node js and ex
     DB_PW=
     ```
 * seed the database `npm run seed`
-* start the server in your terminal, run `npm run start`
+* start the server in your terminal, run `npm start`
 
 
 ## Routes
