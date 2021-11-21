@@ -3,8 +3,10 @@
   * [Description](#description)
   * [Installation](#instructions)
   * [Routes](#routes)
-    * [Products](#Products-Routes)
+    * [Products](#get-all-products)
         * [Get All Products](#get-all-products)
+        * [Get Product By Id](#get-product-by-id)
+        * [Create New Product](#create-new-product)
     * [Category](#category-routes)
     * [Tag](#tag-routes)
   * [Demonstration](#demonstration)
@@ -37,16 +39,14 @@ This app is the backend for an E-Commerce application. Build with node js and ex
 
 ## Routes
 
-### Products Routes
-
-#### Get All Products
+### Get All Products
 The following example demonstrates how to get all products information
 
-#### Example Request
+### Example Request
 ```
 GET http://localhost:3001/api/products
 ```
-#### Example Response
+### Example Response
 ```json
     {
         "status": "success",
@@ -79,14 +79,14 @@ GET http://localhost:3001/api/products
     }
 ```
 
-#### Get Product By Id Route
+### Get Product By Id
 The following example demonstrates how to get a products by id information
 
-#### Example Request
+### Example Request
 ```
 GET http://localhost:3001/api/products/:id
 ```
-#### Example Response
+### Example Response
 
 ```json
 {
@@ -120,14 +120,14 @@ GET http://localhost:3001/api/products/:id
 }
 ```
 
-#### Create New Product Route
+### Create New Product
 The following example demonstrates how to create a new product
 
-#### Example POST Request
+### Example POST Request
 ```
 http://localhost:3001/api/products
 ```
-#### Example Request Body
+### Example Request Body
 ```json
 {
     "product_name": "Basketball",
@@ -136,10 +136,6 @@ http://localhost:3001/api/products
     "tagIds": [1, 2, 3, 4]
 }
 ```
-
-### Category Routes
-
-### Tag Routes
 
 ## Demonstration
 [Watch demo video in youtube](https://youtu.be/RwZBZgHCLc8)
