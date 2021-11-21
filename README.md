@@ -7,8 +7,10 @@
         * [Get All Products](#get-all-products)
         * [Get Product By Id](#get-product-by-id)
         * [Create New Product](#create-new-product)
-    * [Category](#category-routes)
-    * [Tag](#tag-routes)
+    * [Category](#get-all-categories)
+        * [Get-All-Categories](#get-all-categories)
+        * [Get Category By Id](#get-category-by-id)
+        * [Create New Category](#create-new-category)
   * [Demonstration](#demonstration)
   * [Contributions](#contributions)
 
@@ -136,6 +138,118 @@ http://localhost:3001/api/products
     "tagIds": [1, 2, 3, 4]
 }
 ```
+### Example Request Response
+```json
+[
+    {
+        "id": 13,
+        "productId": 6,
+        "tagId": 1
+    },
+    {
+        "id": 14,
+        "productId": 6,
+        "tagId": 2
+    },
+    {
+        "id": 15,
+        "productId": 6,
+        "tagId": 3
+    },
+    {
+        "id": 16,
+        "productId": 6,
+        "tagId": 4
+    }
+]
+```
+
+### Get All Categories
+The following example demonstrates how to get all categories information
+
+### Example GET Request
+```
+http://localhost:3001/api/categories
+```
+### Example Response
+```json
+{
+    "status": "success",
+    "message": "5 categories found",
+    "data": [
+        {
+            "id": 1,
+            "category_name": "Shirts",
+            "products": [
+                {
+                    "id": 1,
+                    "product_name": "Plain T-Shirt",
+                    "price": 15,
+                    "stock": 14,
+                    "category_id": 1,
+                    "categoryId": 1
+                }
+            ]
+        },
+    ]
+}
+```
+### Get Category By Id
+The following example demonstrates how to get a category by id information
+
+### Example GET Request
+```
+http://localhost:3001/api/categories/:id
+```
+### Example Response
+```json
+{
+    "status": "success",
+    "message": "category found",
+    "data": [
+        {
+            "id": 3,
+            "category_name": "Music",
+            "products": [
+                {
+                    "id": 4,
+                    "product_name": "Top 40 Music Compilation Vinyl Record",
+                    "price": 13,
+                    "stock": 50,
+                    "category_id": 3,
+                    "categoryId": 3
+                }
+            ]
+        }
+    ]
+}
+```
+
+### Create New Category
+The following example demonstrates how to create a new category
+
+### Example POST Request
+```
+http://localhost:3001/api/categories
+```
+### Example Request Body
+```json
+{
+    "category_name": "Sports"
+}
+```
+### Example Request Response
+```json
+{
+    "status": "success",
+    "message": "New category added Sports",
+    "data": {
+        "id": 7,
+        "category_name": "Sports"
+    }
+}
+```
+
 
 ## Demonstration
 [Watch demo video in youtube](https://youtu.be/RwZBZgHCLc8)
