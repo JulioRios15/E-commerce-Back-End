@@ -1,7 +1,7 @@
 # E-commerce Back End Starter Code
   ## Table of Content
   * [Description](#description)
-  * [Installation](#instructions)
+  * [Installation](#installation)
   * [Routes](#routes)
     * [Products](#get-all-products)
         * [Get All Products](#get-all-products)
@@ -32,11 +32,14 @@ This app is the backend for an E-Commerce application. Build with node js and ex
     ```
 *  Navigate to "E-commerce-Back-End" directory `cd E-commerce-Back-End` and run `npm install` in your terminal
 * create .env file run `mkdir .env` in your terminal and define environmental varaibles
-    ```
+
+    ```env
     DB_NAME=ecommerce_db
     DB_USER=
     DB_PW=
     ```
+* seed the database `npm run seed`
+* start the server in your terminal, run `npm run start`
 
 
 ## Routes
